@@ -47,5 +47,7 @@ Feel free to play with the source file, just be aware it is written in es2016, s
 
 Enjoy
 
+---
+
 Credits demo image:
 Photo by [Tyler Nix](https://unsplash.com/@jtylernix)
