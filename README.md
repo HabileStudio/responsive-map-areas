@@ -20,7 +20,7 @@ You can resize the window, it will work.
 
 ## How-to
 
-Just add the path to your minified script somewhere in your code (recommended in the <head></head>)
+Just add the path to your minified script somewhere in your code (recommended in the head section)
 Example:
 ```html
 <script src="js/ResponsiveMapAreas.min.js"></script>
@@ -40,3 +40,9 @@ Call the function on each of your maps like this:
 Be careful to **add an id to your map element**.
 
 Detailed instructions are in the source of the demo file index.html
+
+## Source file
+
+Feel free to play with the source file, just be aware it is written in es2016, so you might need a transpiler (e.g. Babel)
+
+Enjoy
