@@ -46,3 +46,6 @@ Detailed instructions are in the source of the demo file index.html
 Feel free to play with the source file, just be aware it is written in es2016, so you might need a transpiler (e.g. Babel)
 
 Enjoy
+
+Credits demo image:
+Photo by [Tyler Nix](https://unsplash.com/@jtylernix)
