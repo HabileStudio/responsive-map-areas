@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1" />
+  
+  <title>Demo for Responsive Map Areas script</title>
+
+  <script src="js/ResponsiveMapAreas.min.js"></script>
+  <style type="text/css">
+    /* this makes your image responsive */
+    img{
+      width :         100%;
+      height :        auto;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <!-- your image -->
+    <img src="img/my_image.jpg"
+         usemap="#my_map"
+         alt="" />
+
+    <!-- your map -->
+    <map id="my_map"
+         name="my_map">
+      <!-- you can use any shape that uses the x,y,x,y pattern coordinates -->
+      <area shape="rectangle"
+            coords="672,546,1372,930"
+            href="https://www.freecodecamp.org/"
+            target="_blank"
+            rel="noopener" />
+      <area shape="rectangle"
+            coords="600,926,1412,1738"
+            href="http://habile.be"
+            target="_blank"
+            rel="noopener" />
+    </map>
+
+    <script>
+      // arguments:
+      // the id of your map
+      // the width of the original image file
+      // the height of the original image file
+      makeResponsive('my_map', 2000, 3000)
+    </script>
+  </main>
+
+</body>
+
+</html>
