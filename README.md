@@ -41,6 +41,11 @@ Be careful to **add an id to your map element**.
 
 Detailed instructions are in the source of the demo file index.html
 
+## Next features
+
+- Ability to use circle shapes
+- User should not have to provide the original width and height when calling the function
+
 ## Source file
 
 Feel free to play with the source file, just be aware it is written in es2016, so you might need a transpiler (e.g. Babel)
