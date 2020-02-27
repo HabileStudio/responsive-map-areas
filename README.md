@@ -11,9 +11,8 @@ This script calculates the ratio from the original size of the image and the abs
 ### Multiple usage
 You can call the function multiple times on different maps on the same page.
 
-### Multiple areas and areas coordinates (as long as it's on the x,y,x,y,x,y... syntax)
-No matter how many areas you have in your map, or how many coords your shapes have.
-You can have any sort of polygon, as long as they have coordinate systems that alternate between x and y values (e.g. "rectangle" or "polygon").
+### Multiple areas and areas coordinates
+No matter how many areas you have in your map, or how many coords your shapes have. Or whatever the shape (polygon, rect, circle or default).
 
 ### Windows resize responsive
 You can resize the window, it will work.
@@ -31,9 +30,7 @@ Call the function on each of your maps like this:
 <script>
   // ARGUMENTS
   // the id of your map
-  // the width of the original image file
-  // the height of the original image file
-  makeResponsive('my_map', 2000, 3000)
+  makeResponsive('my_map')
 </script>
 ```
 
@@ -41,14 +38,9 @@ Be careful to **add an id to your map element**.
 
 Detailed instructions are in the source of the demo file index.html
 
-## Next features
-
-- Ability to use circle shapes
-- User should not have to provide the original width and height when calling the function
-
 ## Source file
 
-Feel free to play with the source file, just be aware it is written in es2016, so you might need a transpiler (e.g. Babel)
+Feel free to play with the source file, just be aware it is written in ES2020, so you might need a transpiler (e.g. Babel)
 
 Enjoy
 
