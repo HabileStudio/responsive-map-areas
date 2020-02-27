@@ -96,3 +96,7 @@ const resizeAreas = (originalCoords, areas, dimensions, originalImageArea) => {
     a.coords = areaCoords[i].toString()
   })
 }
+
+const makeAllResponsive = () => {
+  Array.from(document.getElementsByTagName('map')).forEach( (map) => makeResponsive(map.id) )
+}

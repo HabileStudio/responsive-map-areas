@@ -9,9 +9,9 @@ When you make an image map, you want the image to be responsive, but the areas a
 This script calculates the ratio from the original size of the image and the absolute values in your area coords arguments, and change their coordinates values according to the size of the related image.
 
 ### Multiple usage
-You can call the function multiple times on different maps on the same page.
+You can call the function multiple times on different maps on the same page or you can call one general function for all the maps in your page.
 
-### Multiple areas and areas coordinates
+### Multiple areas and area coordinates
 No matter how many areas you have in your map, or how many coords your shapes have. Or whatever the shape (polygon, rect, circle or default).
 
 ### Windows resize responsive
@@ -19,10 +19,17 @@ You can resize the window, it will work.
 
 ## How-to
 
-Just add the path to your minified script somewhere in your code (recommended in the head section)
+Just add the path to your minified script somewhere in your code (e.g. in the head section)
 Example:
 ```html
 <script src="js/ResponsiveMapAreas.min.js"></script>
+```
+
+To make all your maps responsive, call the general function with no arguments:
+```html
+<script>
+  makeAllResponsive()
+</script>
 ```
 
 Call the function on each of your maps like this:
@@ -35,6 +42,7 @@ Call the function on each of your maps like this:
 ```
 
 Be careful to **add an id to your map element**.
+**Calls to the functions must be made after all your maps elements.** We recommend calling the functions just before the closing ``</body>`` tag
 
 Detailed instructions are in the source of the demo file index.html
 

@@ -28,12 +28,6 @@
     <!-- your map -->
     <map id="my_map"
          name="my_map">
-      <!-- you can use any shape that uses the x,y,x,y pattern coordinates -->
-<!--       <area shape="rectangle"
-            coords="672,546,1372,930"
-            href="https://www.freecodecamp.org/"
-            target="_blank"
-            rel="noopener" /> -->
       <area shape="circle"
             coords="1022,738,100"
             href="https://www.freecodecamp.org/"
@@ -49,11 +43,12 @@
     <script src="js/ResponsiveMapAreas.min.js"></script>
   
     <script>
-      // arguments:
+      // Either call this for each of the map you want to make responsive:
+      // ARGUMENT
       // the id of your map
-      // the width of the original image file
-      // the height of the original image file
       makeResponsive('my_map')
+      // or make all maps responsive on this page by simply calling this:
+      makeAllResponsive()
     </script>
   </main>
 
