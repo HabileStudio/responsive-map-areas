@@ -1,12 +1,18 @@
 let mapsOriginalCoords = []
 
-const makeResponsive = (mapName, width, height) => {
+const makeResponsive = (mapName) => {
   // take the map
   const map = document.getElementById(mapName)
 
   const imgMapped = getImage(mapName)
+  // original width and height
+  const width  = imgMapped.naturalWidth
+  const height = imgMapped.naturalHeight
+
+
   const dimensions = getDimensions(mapName, width, height)
 
+  const originalImageArea = width * height
   // foreach map we take the areas
   const areas = getAreas(mapName)
 
@@ -15,11 +21,11 @@ const makeResponsive = (mapName, width, height) => {
 
   let areaCoords = originalCoords
 
-  resizeAreas(areaCoords, areas, dimensions)
+  resizeAreas(originalCoords, areas, dimensions, originalImageArea)
 
   window.addEventListener('resize', (e) => {
     const dimensions = getDimensions(mapName, width, height)
-    resizeAreas(mapsOriginalCoords[mapName], areas, dimensions)
+    resizeAreas(mapsOriginalCoords[mapName], areas, dimensions, originalImageArea)
   })
 }
 
@@ -59,20 +65,33 @@ const getAreaCoords = (mapName) => {
   return areaCoords
 }
 
-const resizeAreas = (originalCoords, areas, dimensions) => {
+const resizeAreas = (originalCoords, areas, dimensions, originalImageArea) => {
   let areaCoords = []
   originalCoords.forEach( (array, index) => {
     areaCoords[index] = []
-    array.map( (a, i) => {
-      // if even it's an x coord
-      if(i%2 == 0){
-        areaCoords[index][i] = originalCoords[index][i] * dimensions.xRatio
-      } else {
-        areaCoords[index][i] = originalCoords[index][i] * dimensions.yRatio
-      }
-    })
+    // if shape is a circle, it will have only 3 elements (x,y,radius)
+    if(originalCoords[index].length == 3){
+      areaCoords[index][0] = originalCoords[index][0] * dimensions.xRatio
+      areaCoords[index][1] = originalCoords[index][1] * dimensions.yRatio
+      // calculate the original areas
+      let circleArea = Math.PI * Math.pow(originalCoords[index][2], 2)
+      let photoArea  = originalImageArea
+      let newPhotoArea = dimensions.W * dimensions.H
+      let photoChangeAreaRatio = newPhotoArea / photoArea
+      let newCircleArea = circleArea * photoChangeAreaRatio
+      let newCircleRadius = Math.sqrt(newCircleArea / Math.PI)
+      areaCoords[index][2] = newCircleRadius
+    }
+    // else shape is a default | rect | polygon (x,y,x,y,...x,y)
+    else {
+      array.forEach( (a, i) => {
+        // even indexes mean x coordinates (0,1,2,3 <=> x,y,x,y)
+        areaCoords[index][i] = (i%2 == 0)
+                             ? originalCoords[index][i] * dimensions.xRatio
+                             : originalCoords[index][i] * dimensions.yRatio
+      })
+    }
   })
-
   areas.forEach( (a, i) => {
     a.coords = areaCoords[i].toString()
   })
